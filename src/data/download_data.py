@@ -29,7 +29,7 @@ PARAMS = {
 }
 
 OUTPUT_FILE = (
-    Path(__file__).resolve().parents[1]
+    Path(__file__).resolve().parents[2]
     / "data"
     / "raw"
     / "hanoi_weather_2015_2025.csv"

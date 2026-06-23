@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 
-PROJECT_DIR = Path(__file__).resolve().parents[1]
+PROJECT_DIR = Path(__file__).resolve().parents[2]
 INPUT_FILE = PROJECT_DIR / "data" / "raw" / "hanoi_weather_2015_2025.csv"
 OUTPUT_FILE = PROJECT_DIR / "data" / "processed" / "hanoi_weather_processed.csv"
 

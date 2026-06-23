@@ -1,0 +1,2 @@
+model,target,best_alpha,device,epochs,mae,mse,rmse,r2,zero_coefficients,kept_coefficients
+Lasso Regression,target_temp,0.001,cuda,5000,0.9922945499420166,1.7620360851287842,1.3274170727878951,0.9245042279362679,1,26
