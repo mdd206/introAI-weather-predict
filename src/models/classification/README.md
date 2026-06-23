@@ -2,9 +2,9 @@
 
 Dùng cho bài toán dự đoán ngày mai có mưa hay không (`target_rain`).
 
-Các model dự kiến đặt theo từng thư mục thuật toán:
+Các model đặt theo từng thư mục thuật toán:
 
-- `logistic_regression/`
+- `logistic_regression/train.py`: đã thực hiện.
 - `xgboost_classifier/`
 - `random_forest_classifier/`
 

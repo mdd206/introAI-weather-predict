@@ -1,0 +1,33 @@
+Logistic Regression feature analysis
+Device: cuda
+Best C: 100.0
+Best threshold: 0.4
+Accuracy: 0.7479
+Precision: 0.6927
+Recall: 0.8444
+F1: 0.7610
+ROC-AUC: 0.8518
+
+He so duong lam tang xac suat mua:
+- relative_humidity_2m_mean: coefficient = 0.734655
+- cloud_cover_mean: coefficient = 0.448844
+- precipitation_sum: coefficient = 0.394947
+- wind_speed_10m_max: coefficient = 0.163921
+- humidity_rolling_3days: coefficient = 0.151447
+- rain_rolling_3days: coefficient = 0.112654
+- day_cos: coefficient = 0.096601
+- temperature_lag1: coefficient = 0.095386
+- temperature_rolling_7days: coefficient = 0.095094
+- month_cos: coefficient = 0.090841
+
+He so am lam giam xac suat mua:
+- pressure_msl_mean: coefficient = -0.187371
+- wind_speed_10m_mean: coefficient = -0.185441
+- temp_range: coefficient = -0.182536
+- pressure_lag1: coefficient = -0.178781
+- humidity_lag1: coefficient = -0.153715
+- rain_lag1: coefficient = -0.079759
+- rain_lag2: coefficient = -0.065109
+- month_sin: coefficient = -0.039706
+- day_sin: coefficient = -0.028395
+- pressure_change: coefficient = -0.027535

@@ -46,7 +46,7 @@ def preprocess_data():
     weather_data["day_of_year"] = weather_data["date"].dt.dayofyear
 
     weather_data["target_temp"] = temperature.shift(-1)
-    weather_data["target_rain"] = (precipitation.shift(-1) > 0).astype(int)
+    weather_data["target_rain"] = (precipitation.shift(-1) > 1.0).astype(int)
 
     weather_data = weather_data.dropna().reset_index(drop=True)
 
