@@ -1,0 +1,2 @@
+accuracy,precision,recall,f1,roc_auc,tn,fp,fn,tp,model,majority_class
+0.5246575342465754,0,0.0,0,0.5,383,0,347,0,Always predict train majority class,0
