@@ -31,7 +31,6 @@ Các feature gốc:
 - `wind_speed_10m_mean`
 - `wind_speed_10m_max`
 - `precipitation_sum`
-- `rain_sum`
 
 ## 4. Tiền xử lý dữ liệu
 
@@ -64,8 +63,8 @@ target_temp = temperature_2m_mean của ngày t+1
 Dự đoán mưa ngày mai:
 
 ```python
-target_rain = 1 nếu rain_sum của ngày t+1 > 0
-target_rain = 0 nếu rain_sum của ngày t+1 = 0
+target_rain = 1 nếu precipitation_sum của ngày t+1 > 0
+target_rain = 0 nếu precipitation_sum của ngày t+1 = 0
 ```
 
 ## 6. Chia dữ liệu
