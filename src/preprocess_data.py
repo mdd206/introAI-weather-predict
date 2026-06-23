@@ -10,13 +10,14 @@ OUTPUT_FILE = PROJECT_DIR / "data" / "processed" / "hanoi_weather_processed.csv"
 
 def preprocess_data():
     weather_data = pd.read_csv(INPUT_FILE)
+    weather_data = weather_data.drop(columns=["rain_sum"])
 
     weather_data["date"] = pd.to_datetime(weather_data["date"])
     weather_data = weather_data.sort_values("date").reset_index(drop=True)
 
     temperature = weather_data["temperature_2m_mean"]
     humidity = weather_data["relative_humidity_2m_mean"]
-    rain = weather_data["rain_sum"]
+    precipitation = weather_data["precipitation_sum"]
     pressure = weather_data["pressure_msl_mean"]
 
     weather_data["temp_range"] = (
@@ -33,10 +34,10 @@ def preprocess_data():
     weather_data["humidity_lag1"] = humidity.shift(1)
     weather_data["humidity_rolling_3days"] = humidity.rolling(3).mean()
 
-    weather_data["rain_lag1"] = rain.shift(1)
-    weather_data["rain_lag2"] = rain.shift(2)
-    weather_data["rain_rolling_3days"] = rain.rolling(3).mean()
-    weather_data["rain_rolling_7days"] = rain.rolling(7).mean()
+    weather_data["rain_lag1"] = precipitation.shift(1)
+    weather_data["rain_lag2"] = precipitation.shift(2)
+    weather_data["rain_rolling_3days"] = precipitation.rolling(3).mean()
+    weather_data["rain_rolling_7days"] = precipitation.rolling(7).mean()
 
     weather_data["pressure_lag1"] = pressure.shift(1)
     weather_data["pressure_change"] = pressure - weather_data["pressure_lag1"]
@@ -45,7 +46,7 @@ def preprocess_data():
     weather_data["day_of_year"] = weather_data["date"].dt.dayofyear
 
     weather_data["target_temp"] = temperature.shift(-1)
-    weather_data["target_rain"] = (rain.shift(-1) > 0).astype(int)
+    weather_data["target_rain"] = (precipitation.shift(-1) > 0).astype(int)
 
     weather_data = weather_data.dropna().reset_index(drop=True)
 
