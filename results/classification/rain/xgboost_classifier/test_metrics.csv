@@ -1,0 +1,2 @@
+model,best_max_depth,best_learning_rate,best_reg_lambda,best_subsample,test_accuracy,tn,fp,fn,tp
+Custom_PyTorch_XGBoost_Classifier_From_Scratch,4,0.2,10.0,0.8,0.773972602739726,298,85,80,267

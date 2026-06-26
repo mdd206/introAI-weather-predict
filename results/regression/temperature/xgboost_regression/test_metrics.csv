@@ -1,0 +1,2 @@
+model,best_max_depth,best_learning_rate,best_reg_lambda,best_subsample,test_mae,test_rmse,test_r2
+Custom_PyTorch_XGBoost_Regressor_From_Scratch,5,0.2,1.0,0.8,0.9512777328491211,1.2889373256134047,0.9288178086280823
