@@ -140,7 +140,7 @@ def main():
     predictions_df.to_csv(RESULTS_DIR / "test_predictions.csv", index=False)
 
     summary_metrics = pd.DataFrame([{
-        "model": "Custom_PyTorch_XGBoost_Classifier_From_Scratch",
+        "model": "XGBoostClassifier",
         "best_max_depth": int(best_hyper["max_depth"]),
         "best_learning_rate": float(best_hyper["learning_rate"]),
         "best_reg_lambda": float(best_hyper["reg_lambda"]),
