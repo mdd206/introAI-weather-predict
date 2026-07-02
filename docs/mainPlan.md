@@ -67,3 +67,19 @@
   - `data/results/logistic_regression_test_metrics.csv`
   - `data/results/logistic_regression_test_predictions.csv`
 
+## 7. LSTM
+- File code: `src/05_lstm_gpu.ipynb`
+- Chạy bằng env `weather-predict` và bắt buộc dùng GPU/CUDA, không fallback sang CPU.
+- Input là chuỗi 24 giờ thời tiết gần nhất.
+- Model: LSTM 1 layer, hidden size 64, output 3 xác suất mưa sau 1h, 2h, 3h.
+- Biến chu kỳ được đổi sang sin/cos: `hour`, `month`, `dayofweek`, `wind_direction_10m`.
+- Không dùng các cột lag vì LSTM đã học trực tiếp từ chuỗi quá khứ.
+- Chuẩn hóa feature bằng `StandardScaler`.
+- Hàm mất mát: `BCEWithLogitsLoss`.
+- Train trên train, dùng valid loss để chọn số epoch.
+- Sau đó gộp train + valid, train lại và đánh giá final trên test.
+- Threshold khi đổi xác suất sang nhãn: `0.5`.
+- File kết quả:
+  - `data/results/lstm_training_history.csv`
+  - `data/results/lstm_test_metrics.csv`
+  - `data/results/lstm_test_predictions.csv`
