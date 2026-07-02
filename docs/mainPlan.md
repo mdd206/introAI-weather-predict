@@ -93,9 +93,10 @@
   - `rain_next_3h`
 - Mỗi model trả về xác suất mưa bằng `predict_proba`.
 - Dùng đúng cơ chế Random Forest: bootstrap mẫu dữ liệu và chọn ngẫu nhiên một phần feature ở mỗi cây (`max_features="sqrt"`).
-- Biến chu kỳ được đổi sang sin/cos: `hour`, `month`, `dayofweek`, `wind_direction_10m`.
+- Giữ các biến thời gian ở dạng gốc: `hour`, `month`, `dayofweek`.
+- Đổi hướng gió `wind_direction_10m` sang `wind_dir_sin`, `wind_dir_cos` vì đây là biến vòng tròn 0-360 độ.
 - Không cần chuẩn hóa feature bằng `StandardScaler` vì Random Forest dựa trên cây quyết định.
-- Train trên train, dùng valid để chọn bộ tham số tốt nhất theo `log_loss`.
+- Train trên train, dùng valid để chọn bộ tham số tốt nhất theo `log_loss` từ 7 tổ hợp tham số.
 - Sau đó gộp train + valid, train lại 3 model final và đánh giá cuối trên test.
 - Threshold khi đổi xác suất sang nhãn: `0.5`.
 - File kết quả:
