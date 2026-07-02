@@ -23,6 +23,10 @@
 - Train: 2019-2023.
 - Valid: 2024.
 - Test: 2025.
+- Valid dùng để kiểm tra/chọn cách làm.
+- Test chỉ dùng cho kết quả cuối cùng.
+- Sau khi chốt cách làm bằng valid, gộp train + valid để fit lại rồi mới đánh giá cuối trên test.
+- Nếu không có bước valid thì thực hiện test cuối trực tiếp theo kế hoạch ban đầu.
 - File output:
   - `data/processed/hanoi_weather_processed.csv`
   - `data/processed/train.csv`
@@ -36,4 +40,15 @@
   - `P(rain_next_3h = 1)`
 - Khi cần cảnh báo mưa, có thể chọn threshold sau, ví dụ xác suất >= 0.5.
 - Chỉ số đánh giá nên dùng: `Log Loss`, `Brier Score`, `ROC-AUC`, `PR-AUC`, và có thể xem thêm `Precision`, `Recall`, `F1` theo một threshold cụ thể.
+
+## 5. BASELINE ĐƠN GIẢN
+- File code: `src/03_baseline_month_hour.ipynb`
+- Chưa dùng model học máy.
+- Cách làm: tính xác suất mưa theo `month` và `hour` từ dữ liệu dùng để fit baseline.
+- Baseline này không có bước chọn model/tham số nên không cần đánh giá valid.
+- Gộp train + valid, tính xác suất mưa theo `month` và `hour`, sau đó đánh giá final trên test.
+- Threshold khi đổi xác suất sang nhãn: `0.5`.
+- File kết quả:
+  - `data/results/baseline_month_hour_metrics.csv`
+  - `data/results/baseline_month_hour_test_predictions.csv`
 
