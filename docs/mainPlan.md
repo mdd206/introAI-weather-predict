@@ -52,3 +52,18 @@
   - `data/results/baseline_month_hour_metrics.csv`
   - `data/results/baseline_month_hour_test_predictions.csv`
 
+## 6. LOGISTIC REGRESSION
+- File code: `src/04_logistic_regression_gpu.ipynb`
+- Dùng PyTorch để có thể chạy GPU nếu máy có CUDA.
+- Model: `Linear(input_dim, 3)`, cho ra 3 xác suất mưa sau 1h, 2h, 3h.
+- Biến chu kỳ được đổi sang sin/cos: `hour`, `month`, `dayofweek`, `wind_direction_10m`.
+- Chuẩn hóa feature bằng `StandardScaler`.
+- Hàm mất mát: `BCEWithLogitsLoss`.
+- Train trên train, dùng valid để chọn số epoch.
+- Sau đó gộp train + valid, train lại và đánh giá final trên test.
+- Threshold khi đổi xác suất sang nhãn: `0.5`.
+- File kết quả:
+  - `data/results/logistic_regression_training_history.csv`
+  - `data/results/logistic_regression_test_metrics.csv`
+  - `data/results/logistic_regression_test_predictions.csv`
+
