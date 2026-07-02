@@ -83,3 +83,22 @@
   - `data/results/lstm_training_history.csv`
   - `data/results/lstm_test_metrics.csv`
   - `data/results/lstm_test_predictions.csv`
+
+## 8. RANDOM FOREST
+- File code: `src/06_random_forest.ipynb`
+- Dùng `RandomForestClassifier` của scikit-learn.
+- Train 3 model riêng cho 3 nhãn:
+  - `rain_next_1h`
+  - `rain_next_2h`
+  - `rain_next_3h`
+- Mỗi model trả về xác suất mưa bằng `predict_proba`.
+- Dùng đúng cơ chế Random Forest: bootstrap mẫu dữ liệu và chọn ngẫu nhiên một phần feature ở mỗi cây (`max_features="sqrt"`).
+- Biến chu kỳ được đổi sang sin/cos: `hour`, `month`, `dayofweek`, `wind_direction_10m`.
+- Không cần chuẩn hóa feature bằng `StandardScaler` vì Random Forest dựa trên cây quyết định.
+- Train trên train, dùng valid để chọn bộ tham số tốt nhất theo `log_loss`.
+- Sau đó gộp train + valid, train lại 3 model final và đánh giá cuối trên test.
+- Threshold khi đổi xác suất sang nhãn: `0.5`.
+- File kết quả:
+  - `data/results/random_forest_tuning_results.csv`
+  - `data/results/random_forest_test_metrics.csv`
+  - `data/results/random_forest_test_predictions.csv`
